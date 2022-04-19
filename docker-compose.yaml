@@ -3,15 +3,7 @@ version: "3"
 services:
   websocket:
     build: .
-    expose:
+    ports:
       - 6486
     restart: always
-    environment:
-      VIRTUAL_HOST: event.minotaur.ml
-volumes:
-  db_data:
-
-networks:
-  default:
-    external:
-      name: nginx-proxy
+    network_mode: bridge
