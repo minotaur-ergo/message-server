@@ -8,7 +8,7 @@ const clients: {[id: string]: Client} = {};
 const server = http.createServer(function (request, response) {
     // Not important for us. We're writing WebSocket server, not HTTP server
 });
-server.listen(webSocketsServerPort, function () {
+server.listen(webSocketsServerPort, '0.0.0.0', function () {
     console.log((new Date()) + " Server is listening on port " + webSocketsServerPort);
 });
 
