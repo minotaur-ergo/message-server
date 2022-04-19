@@ -7,7 +7,7 @@ services:
       - 6486
     restart: always
     environment:
-      VIRTUAL_HOST: event.minotaur-ergo.tk
+      VIRTUAL_HOST: event.minotaur.ml
 volumes:
   db_data:
 
