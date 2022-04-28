@@ -8,7 +8,7 @@ export interface RegisterMessage {
 export interface SendMessage{
     client: string;
     secret: string;
-    payload: string;
+    content: string;
 }
 
 export interface Message {

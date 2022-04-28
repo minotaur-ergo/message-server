@@ -51,7 +51,7 @@ wsServer.on('request', function (request) {
                         if (client.secret === payload.secret) {
                             client.connection.sendUTF(JSON.stringify({
                                 sender: myInfo.id,
-                                payload: message.payload
+                                payload: payload.content
                             }))
                         }
                     }
