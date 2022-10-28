@@ -34,6 +34,7 @@ wsServer.on('request', function (request) {
     connection.on('message', function (messageObj) {
         if (messageObj.type === 'utf8') { // accept only text
             try {
+                console.log(`new message arrived ${messageObj.utf8Data}`)
                 const message: Message = JSON.parse(messageObj.utf8Data) as Message;
                 if (message.action === 'register') {
                     // register new client
@@ -44,6 +45,7 @@ wsServer.on('request', function (request) {
                         secret: payload.secret
                     }
                     myInfo.id = payload.id
+                    connection.sendUTF(JSON.stringify({sender: ''}))
                 } else if (message.action === 'send') {
                     const payload = message.payload as SendMessage;
                     if (clients.hasOwnProperty(payload.client)) {
@@ -51,14 +53,14 @@ wsServer.on('request', function (request) {
                         if (client.secret === payload.secret) {
                             client.connection.sendUTF(JSON.stringify({
                                 sender: myInfo.id,
-                                payload: payload.content
+                                pageId: payload.pageId,
+                                content: payload.content
                             }))
                         }
                     }
-
                 }
             } catch (exp) {
-
+                console.log(`an error occured ${exp}`)
             }
         }
     });

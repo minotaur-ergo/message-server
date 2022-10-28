@@ -9,6 +9,7 @@ export interface SendMessage{
     client: string;
     secret: string;
     content: string;
+    pageId: string;
 }
 
 export interface Message {
