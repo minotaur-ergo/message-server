@@ -1,0 +1,9 @@
+logs:
+  - type: 'file'
+    path: './logs/'
+    maxSize: '20m'
+    maxFiles: '14d'
+    level: 'info'
+  - type: 'console'
+    level: 'info'
+port: 6486
