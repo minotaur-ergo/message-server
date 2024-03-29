@@ -2,10 +2,6 @@ import { TransportOptions } from '@rosen-bridge/winston-logger';
 import config from 'config';
 import { exit } from 'process';
 
-export const maxLogSize = config.get<string>('logs.maxSize');
-export const maxLogFilesCount = config.get<string>('logs.maxFilesCount');
-export const logsPath = config.get<string>('logs.path');
-export const logLevel = config.get<string>('logs.level');
 export const Port = config.get<number>('port');
 
 const logs = config.get<TransportOptions[]>('logs');
